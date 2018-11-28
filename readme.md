@@ -7,6 +7,19 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+# Setting up the environment
+1. clone the git
+2. composer update --no-scripts
+3. cp .env.example .env
+4. php artisan key:generate
+5. Create db and change the credential inside the env file[DB name, Username, password]
+
+Before doing the migrate check if the AppServiceProvider is config for the 191 string length add the following line in the top of the AppServiceProvider.php file
+use Illuminate\Support\Facades\Schema;
+
+Then add the following schema inside the boot function
+1. schema::defaultStringLength(191);
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
